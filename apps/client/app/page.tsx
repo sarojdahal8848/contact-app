@@ -1,9 +1,3 @@
-import styles from './page.module.scss';
-
 export default async function Index() {
-  return (
-    <div className={styles.page}>
-      Hello world form Next Js
-    </div>
-  );
+  return <div>Hello world form Next Js. I am Saroj Dahal.</div>;
 }
