@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+REGEX="^(feature|fix|documentation|style|build|refactor|test|other)\/#([0-9]+)\/([a-zA-Z0-9-]+)$"
+
+if ! [[ $BRANCH =~ $REGEX ]]; then
+  echo "ERROR!!!!!!!!!!!!!!!!!!"
+  echo ""
+  echo "Your commit was rejected due to branching name"
+  echo ""
+  echo "Your current branch name is '$BRANCH'"
+  echo ""
+  echo "Please rename your branch with '(feature|fix|documentation|style|build|refactor|test|other)/#issue-no/name' syntax"
+  echo ""
+  echo "Please rename your branch as given in the example: 'feature/#234/add-button'"
+  echo ""
+  echo "ERROR!!!!!!!!!!!!!!!!!!"
+  exit 1
+fi
